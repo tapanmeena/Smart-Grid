@@ -1,0 +1,1328 @@
+==24539== Helgrind, a thread error detector
+==24539== Copyright (C) 2007-2015, and GNU GPL'd, by OpenWorks LLP et al.
+==24539== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==24539== Command: ./iPMU pmu_info_3000.csv
+==24539== 
+--24539-- Valgrind options:
+--24539--    -v
+--24539--    --tool=helgrind
+--24539--    --read-var-info=yes
+--24539-- Contents of /proc/version:
+--24539--   Linux version 4.4.0-93-generic (buildd@lgw01-03) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ) #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+--24539-- 
+--24539-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--24539-- Page sizes: currently 4096, max supported 4096
+--24539-- Valgrind library directory: /usr/lib/valgrind
+--24539-- Reading syms from /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU
+--24539-- Reading syms from /lib/x86_64-linux-gnu/ld-2.23.so
+--24539--   Considering /lib/x86_64-linux-gnu/ld-2.23.so ..
+--24539--   .. CRC mismatch (computed 9bc477cd wanted 3da2f12a)
+--24539--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.23.so ..
+--24539--   .. CRC is valid
+--24539-- warning: addVar: unknown size (seen)
+--24539-- warning: addVar: unknown size (arg)
+--24539-- warning: addVar: unknown size (arg)
+--24539-- warning: addVar: unknown size (arg)
+--24539-- warning: addVar: unknown size (ap)
+--24539-- Reading syms from /usr/lib/valgrind/helgrind-amd64-linux
+--24539--   Considering /usr/lib/valgrind/helgrind-amd64-linux ..
+--24539--   .. CRC mismatch (computed b2178fda wanted 9c894282)
+--24539--    object doesn't have a symbol table
+--24539--    object doesn't have a dynamic symbol table
+--24539-- Scheduler: using generic scheduler lock implementation.
+--24539-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==24539== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-24539-by-gelli-on-???
+==24539== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-24539-by-gelli-on-???
+==24539== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-24539-by-gelli-on-???
+==24539== 
+==24539== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==24539== don't want to do, unless you know exactly what you're doing,
+==24539== or are doing some strange experiment):
+==24539==   /usr/lib/valgrind/../../bin/vgdb --pid=24539 ...command...
+==24539== 
+==24539== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==24539==   /path/to/gdb ./iPMU
+==24539== and then give GDB the following command
+==24539==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=24539
+==24539== --pid is optional if only one valgrind process is running
+==24539== 
+--24539-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--24539--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--24539--   .. CRC mismatch (computed 2567ccf6 wanted 49420590)
+--24539--    object doesn't have a symbol table
+--24539-- Reading syms from /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so
+--24539--   Considering /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so ..
+--24539--   .. CRC mismatch (computed 4fc8b0b2 wanted 80b49e71)
+--24539--    object doesn't have a symbol table
+--24539-- REDIR: 0x401b8e0 (ld-linux-x86-64.so.2:index) redirected to 0x4c36ef0 (index)
+--24539-- REDIR: 0x401bb00 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c37e00 (strcmp)
+--24539-- REDIR: 0x401cf90 (ld-linux-x86-64.so.2:strlen) redirected to 0x4c37150 (strlen)
+--24539-- REDIR: 0x401dcf0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c3a3a0 (mempcpy)
+--24539-- Reading syms from /lib/x86_64-linux-gnu/librt-2.23.so
+--24539--   Considering /lib/x86_64-linux-gnu/librt-2.23.so ..
+--24539--   .. CRC mismatch (computed 53afabad wanted 7e68d3a3)
+--24539--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/librt-2.23.so ..
+--24539--   .. CRC is valid
+--24539-- warning: addVar: unknown size (waitlist)
+--24539-- warning: addVar: unknown size (requestlist)
+--24539-- warning: addVar: unknown size (ap)
+--24539-- Reading syms from /lib/x86_64-linux-gnu/libm-2.23.so
+--24539--   Considering /lib/x86_64-linux-gnu/libm-2.23.so ..
+--24539--   .. CRC mismatch (computed 8bd88005 wanted 32b88176)
+--24539--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.23.so ..
+--24539--   .. CRC is valid
+--24539-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.23.so
+--24539--   Considering /usr/lib/debug/.build-id/27/f189ef8db8c3734c6a678e6ef3cb0b206d58b2.debug ..
+--24539--   .. build-id is valid
+--24539-- warning: addVar: unknown size (ap)
+--24539-- warning: addVar: unknown size (ap)
+==24539== WARNING: new redirection conflicts with existing -- ignoring it
+--24539--     old: 0x0535eeb0 (pthread_spin_init   ) W-> (0000.0) 0x04c365e0 pthread_spin_init
+--24539--     new: 0x0535eeb0 (pthread_spin_init   ) W-> (0000.0) 0x04c365f0 pthread_spin_unlock
+==24539== WARNING: new redirection conflicts with existing -- ignoring it
+--24539--     old: 0x05360940 (sem_wait@@GLIBC_2.2.) W-> (0000.0) 0x04c366d0 sem_wait@*
+--24539--     new: 0x05360940 (sem_wait@@GLIBC_2.2.) W-> (0000.0) 0x04c366c0 sem_wait
+==24539== WARNING: new redirection conflicts with existing -- ignoring it
+--24539--     old: 0x05360bc0 (sem_post@@GLIBC_2.2.) W-> (0000.0) 0x04c366f0 sem_post@*
+--24539--     new: 0x05360bc0 (sem_post@@GLIBC_2.2.) W-> (0000.0) 0x04c366e0 sem_post
+--24539-- Reading syms from /lib/x86_64-linux-gnu/libc-2.23.so
+--24539--   Considering /lib/x86_64-linux-gnu/libc-2.23.so ..
+--24539--   .. CRC mismatch (computed b2979fac wanted 1affc958)
+--24539--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.23.so ..
+--24539--   .. CRC is valid
+--24539-- REDIR: 0x55fda00 (libc.so.6:strcasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x55f9280 (libc.so.6:strcspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x55ffcf0 (libc.so.6:strncasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x55fb6f0 (libc.so.6:strpbrk) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x55fba80 (libc.so.6:strspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x55fd14b (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x55fb400 (libc.so.6:rindex) redirected to 0x4c36bd0 (rindex)
+--24539-- REDIR: 0x55f2130 (libc.so.6:malloc) redirected to 0x4c2ef40 (malloc)
+--24539-- REDIR: 0x55fc060 (libc.so.6:__GI_strstr) redirected to 0x4c3a4f0 (__strstr_sse2)
+--24539-- REDIR: 0x55fc860 (libc.so.6:memchr) redirected to 0x4c37ea0 (memchr)
+--24539-- REDIR: 0x5602470 (libc.so.6:__GI_memcpy) redirected to 0x4c386b0 (__GI_memcpy)
+--24539-- REDIR: 0x55f9720 (libc.so.6:strlen) redirected to 0x4c37090 (strlen)
+--24539-- REDIR: 0x55f9160 (libc.so.6:strcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x56139d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c37170 (strcpy)
+--24539-- REDIR: 0x5604760 (libc.so.6:strchrnul) redirected to 0x4c3a110 (strchrnul)
+--24539-- REDIR: 0x55f7880 (libc.so.6:strcat) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x56167f0 (libc.so.6:__strcat_sse2_unaligned) redirected to 0x4c36f30 (strcat)
+--24539-- REDIR: 0x55f26c0 (libc.so.6:realloc) redirected to 0x4c31100 (realloc)
+--24539-- REDIR: 0x55fd1b0 (libc.so.6:memset) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x56e0930 (libc.so.6:__memset_avx2) redirected to 0x4c39830 (memset)
+--24539-- REDIR: 0x55fb3c0 (libc.so.6:strncpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x5614000 (libc.so.6:__strncpy_sse2_unaligned) redirected to 0x4c37350 (__strncpy_sse2_unaligned)
+--24539-- REDIR: 0x55f9ae0 (libc.so.6:strncat) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--24539-- REDIR: 0x56170e0 (libc.so.6:__strncat_sse2_unaligned) redirected to 0x4c36fb0 (strncat)
+--24539-- REDIR: 0x56b8940 (libc.so.6:__strcasecmp_avx) redirected to 0x4c37590 (strcasecmp)
+--24539-- REDIR: 0x5358990 (libpthread.so.0:pthread_create@@GLIBC_2.2.5) redirected to 0x4c35cc0 (pthread_create@*)
+--24539-- REDIR: 0x55f2d10 (libc.so.6:calloc) redirected to 0x4c30ec0 (calloc)
+--24539-- REDIR: 0x55f24f0 (libc.so.6:free) redirected to 0x4c301a0 (free)
+--24539-- REDIR: 0x53598d0 (libpthread.so.0:pthread_join) redirected to 0x4c35cd0 (pthread_join)
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #1 is the program's root thread
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #1's call to pthread_join failed
+==24539==    with error code 22 (EINVAL: Invalid argument)
+==24539==    at 0x4C31E4D: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40589A: server (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404302: main (iPMU.c:730)
+==24539== 
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+--24539-- REDIR: 0x55fd3b0 (libc.so.6:__GI_mempcpy) redirected to 0x4c3a280 (__GI_mempcpy)
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+--24539-- REDIR: 0x535e2a0 (libpthread.so.0:pthread_cond_wait@@GLIBC_2.3.2) redirected to 0x4c36120 (pthread_cond_wait@*)
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #365 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40461D: main (iPMU.c:785)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #365: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #366 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40461D: main (iPMU.c:785)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #366: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #367 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40461D: main (iPMU.c:785)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #367: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #368 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40461D: main (iPMU.c:785)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #368: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #369 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40461D: main (iPMU.c:785)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #369: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #370 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40461D: main (iPMU.c:785)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #370: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #371 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40461D: main (iPMU.c:785)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #371: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #1: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40466F: main (iPMU.c:793)
+==24539== 
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+--24539-- REDIR: 0x535ad40 (libpthread.so.0:pthread_mutex_lock) redirected to 0x4c360e0 (pthread_mutex_lock)
+--24539-- REDIR: 0x535c4c0 (libpthread.so.0:pthread_mutex_unlock) redirected to 0x4c36110 (pthread_mutex_unlock)
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+end = 50
+end = 100
+end = 150
+end = 200
+end = 250
+end = 300
+end = 363
+send_cfg_count = 1
+send_cfg_count = 2
+send_cfg_count = 3
+send_cfg_count = 4
+send_cfg_count = 5
+send_cfg_count = 6
+send_cfg_count = 7
+send_cfg_count = 8
+send_cfg_count = 9
+send_cfg_count = 10
+send_cfg_count = 11
+send_cfg_count = 12
+send_cfg_count = 13
+send_cfg_count = 14
+send_cfg_count = 15
+send_cfg_count = 16
+send_cfg_count = 17
+send_cfg_count = 18
+send_cfg_count = 19
+send_cfg_count = 20
+send_cfg_count = 21
+send_cfg_count = 22
+send_cfg_count = 23
+send_cfg_count = 24
+send_cfg_count = 25
+send_cfg_count = 26
+send_cfg_count = 27
+send_cfg_count = 28
+send_cfg_count = 29
+send_cfg_count = 30
+send_cfg_count = 31
+send_cfg_count = 32
+send_cfg_count = 33
+send_cfg_count = 34
+send_cfg_count = 35
+send_cfg_count = 36
+send_cfg_count = 37
+send_cfg_count = 38
+send_cfg_count = 39
+send_cfg_count = 40
+send_cfg_count = 41
+send_cfg_count = 42
+send_cfg_count = 43
+send_cfg_count = 44
+send_cfg_count = 45
+send_cfg_count = 46
+send_cfg_count = 47
+send_cfg_count = 48
+send_cfg_count = 49
+send_cfg_count = 50
+send_cfg_count = 51
+send_cfg_count = 52
+send_cfg_count = 53
+send_cfg_count = 54
+send_cfg_count = 55
+send_cfg_count = 56
+send_cfg_count = 57
+send_cfg_count = 58
+send_cfg_count = 59
+send_cfg_count = 60
+send_cfg_count = 61
+send_cfg_count = 62
+send_cfg_count = 63
+send_cfg_count = 64
+send_cfg_count = 65
+send_cfg_count = 66
+send_cfg_count = 67
+send_cfg_count = 68
+send_cfg_count = 69
+send_cfg_count = 70
+send_cfg_count = 71
+send_cfg_count = 72
+send_cfg_count = 73
+send_cfg_count = 74
+send_cfg_count = 75
+send_cfg_count = 76
+send_cfg_count = 77
+send_cfg_count = 78
+send_cfg_count = 79
+send_cfg_count = 80
+send_cfg_count = 81
+send_cfg_count = 82
+send_cfg_count = 83
+send_cfg_count = 84
+send_cfg_count = 85
+send_cfg_count = 86
+send_cfg_count = 87
+send_cfg_count = 88
+send_cfg_count = 89
+send_cfg_count = 90
+send_cfg_count = 91
+send_cfg_count = 92
+send_cfg_count = 93
+send_cfg_count = 94
+send_cfg_count = 95
+send_cfg_count = 96
+send_cfg_count = 97
+send_cfg_count = 98
+send_cfg_count = 99
+send_cfg_count = 100
+send_cfg_count = 101
+send_cfg_count = 102
+send_cfg_count = 103
+send_cfg_count = 104
+send_cfg_count = 105
+send_cfg_count = 106
+send_cfg_count = 107
+send_cfg_count = 108
+send_cfg_count = 109
+send_cfg_count = 110
+send_cfg_count = 111
+send_cfg_count = 112
+send_cfg_count = 113
+send_cfg_count = 114
+send_cfg_count = 115
+send_cfg_count = 116
+send_cfg_count = 117
+send_cfg_count = 118
+send_cfg_count = 119
+send_cfg_count = 120
+send_cfg_count = 121
+send_cfg_count = 122
+send_cfg_count = 123
+send_cfg_count = 124
+send_cfg_count = 125
+send_cfg_count = 126
+send_cfg_count = 127
+send_cfg_count = 128
+send_cfg_count = 129
+send_cfg_count = 130
+send_cfg_count = 131
+send_cfg_count = 132
+send_cfg_count = 133
+send_cfg_count = 134
+send_cfg_count = 135
+send_cfg_count = 136
+send_cfg_count = 137
+send_cfg_count = 138
+send_cfg_count = 139
+send_cfg_count = 140
+send_cfg_count = 141
+send_cfg_count = 142
+send_cfg_count = 143
+send_cfg_count = 144
+send_cfg_count = 145
+send_cfg_count = 146
+send_cfg_count = 147
+send_cfg_count = 148
+send_cfg_count = 149
+send_cfg_count = 150
+send_cfg_count = 151
+send_cfg_count = 152
+send_cfg_count = 153
+send_cfg_count = 154
+send_cfg_count = 155
+send_cfg_count = 156
+send_cfg_count = 157
+send_cfg_count = 158
+send_cfg_count = 159
+send_cfg_count = 160
+send_cfg_count = 161
+send_cfg_count = 162
+send_cfg_count = 163
+send_cfg_count = 164
+send_cfg_count = 165
+send_cfg_count = 166
+send_cfg_count = 167
+send_cfg_count = 168
+send_cfg_count = 169
+send_cfg_count = 170
+send_cfg_count = 171
+send_cfg_count = 172
+send_cfg_count = 173
+send_cfg_count = 174
+send_cfg_count = 175
+send_cfg_count = 176
+send_cfg_count = 177
+send_cfg_count = 178
+send_cfg_count = 179
+send_cfg_count = 180
+send_cfg_count = 181
+send_cfg_count = 182
+send_cfg_count = 183
+send_cfg_count = 184
+send_cfg_count = 185
+send_cfg_count = 186
+send_cfg_count = 187
+send_cfg_count = 188
+send_cfg_count = 189
+send_cfg_count = 190
+send_cfg_count = 191
+send_cfg_count = 192
+send_cfg_count = 193
+send_cfg_count = 194
+send_cfg_count = 195
+send_cfg_count = 196
+send_cfg_count = 19--24539-- REDIR: 0x535e9c0 (libpthread.so.0:pthread_cond_signal@@GLIBC_2.3.2) redirected to 0x4c36140 (pthread_cond_signal@*)
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+--24539-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf2
+==24539== ---Thread-Announcement------------------------------------------
+==24539== 
+==24539== Thread #2 was created
+==24539==    at 0x567539E: clone (clone.S:74)
+==24539==    by 0x5357149: create_thread (createthread.c:102)
+==24539==    by 0x5358E83: pthread_create@@GLIBC_2.2.5 (pthread_create.c:679)
+==24539==    by 0x4C34BB7: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x405864: server (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404302: main (iPMU.c:730)
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during read of size 4 at 0x59B4CD0 by thread #365
+==24539== Locks held: none
+==24539==    at 0x40511A: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== This conflicts with a previous write of size 4 by thread #2
+==24539== Locks held: none
+==24539==    at 0x40551C: UDP_PMU (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x59b4cd0 is 0 bytes inside a block of size 1,452 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x4040CC: main (iPMU.c:699)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB0 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4C398C8: memset (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40168E: generate_data_frame (iPMU.c:54)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab0 is 0 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB2 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4C398D2: memset (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40168E: generate_data_frame (iPMU.c:54)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab2 is 2 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB4 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401795: generate_data_frame (iPMU.c:67)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab4 is 4 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB6 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x40189B: generate_data_frame (iPMU.c:89)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab6 is 6 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABA by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4018D7: generate_data_frame (iPMU.c:94)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593caba is 10 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABB by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x40191F: generate_data_frame (iPMU.c:100)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cabb is 11 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABE by thread #1
+==24539== Locks held: none
+==24539==    at 0x401A10: generate_data_frame (iPMU.c:125)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cabe is 14 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABF by thread #1
+==24539== Locks held: none
+==24539==    at 0x401A3B: generate_data_frame (iPMU.c:126)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cabf is 15 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAC0 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401D10: generate_data_frame (iPMU.c:184)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cac0 is 16 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAC4 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401DAC: generate_data_frame (iPMU.c:197)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cac4 is 20 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE0 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401FA0: generate_data_frame (iPMU.c:233)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae0 is 48 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE4 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x40201B: generate_data_frame (iPMU.c:239)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae4 is 52 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE8 by thread #1
+==24539== Locks held: none
+==24539==    at 0x402368: generate_data_frame (iPMU.c:286)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae8 is 56 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE9 by thread #1
+==24539== Locks held: none
+==24539==    at 0x40239A: generate_data_frame (iPMU.c:287)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae9 is 57 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x5948D72 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401739: generate_data_frame (iPMU.c:62)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x5948d72 is 2 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x599FA50 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4016B7: generate_data_frame (iPMU.c:57)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #371
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x599fa50 is 0 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x599FA51 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4016E2: generate_data_frame (iPMU.c:58)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #371
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x599fa51 is 1 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== Process terminating with default action of signal 2 (SIGINT)
+==24539==    at 0x53618F3: ??? (syscall-template.S:84)
+==24539==    by 0x405408: UDP_PMU (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== ERROR SUMMARY: 1747705 errors from 27 contexts (suppressed: 1785320 from 88)
+==24539== 
+==24539== 1 errors in context 1 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #1: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40466F: main (iPMU.c:793)
+==24539== 
+==24539== 
+==24539== 78 errors in context 2 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #370: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== 
+==24539== 78 errors in context 3 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #366: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== 
+==24539== 79 errors in context 4 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #371: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== 
+==24539== 80 errors in context 5 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #368: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== 
+==24539== 80 errors in context 6 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #367: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== 
+==24539== 80 errors in context 7 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #369: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== 
+==24539== 80 errors in context 8 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #365: pthread_cond_{timed}wait called with invalid mutex
+==24539==    at 0x4C34E65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x404F9D: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== 
+==24539== 155 errors in context 9 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x599FA51 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4016E2: generate_data_frame (iPMU.c:58)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #371
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x599fa51 is 1 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 155 errors in context 10 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x599FA50 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4016B7: generate_data_frame (iPMU.c:57)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #371
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x599fa50 is 0 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 363 errors in context 11 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Thread #1's call to pthread_join failed
+==24539==    with error code 22 (EINVAL: Invalid argument)
+==24539==    at 0x4C31E4D: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40589A: server (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404302: main (iPMU.c:730)
+==24539== 
+==24539== 
+==24539== 776 errors in context 12 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x5948D72 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401739: generate_data_frame (iPMU.c:62)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x5948d72 is 2 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 28297 errors in context 13 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE9 by thread #1
+==24539== Locks held: none
+==24539==    at 0x40239A: generate_data_frame (iPMU.c:287)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae9 is 57 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 28297 errors in context 14 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE8 by thread #1
+==24539== Locks held: none
+==24539==    at 0x402368: generate_data_frame (iPMU.c:286)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae8 is 56 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 28298 errors in context 15 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABF by thread #1
+==24539== Locks held: none
+==24539==    at 0x401A3B: generate_data_frame (iPMU.c:126)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cabf is 15 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 28298 errors in context 16 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABE by thread #1
+==24539== Locks held: none
+==24539==    at 0x401A10: generate_data_frame (iPMU.c:125)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cabe is 14 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 28298 errors in context 17 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABA by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4018D7: generate_data_frame (iPMU.c:94)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593caba is 10 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 53634 errors in context 18 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during read of size 4 at 0x59B4CD0 by thread #365
+==24539== Locks held: none
+==24539==    at 0x40511A: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539== 
+==24539== This conflicts with a previous write of size 4 by thread #2
+==24539== Locks held: none
+==24539==    at 0x40551C: UDP_PMU (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x59b4cd0 is 0 bytes inside a block of size 1,452 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x4040CC: main (iPMU.c:699)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 56596 errors in context 19 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB4 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401795: generate_data_frame (iPMU.c:67)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab4 is 4 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 56596 errors in context 20 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB2 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4C398D2: memset (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40168E: generate_data_frame (iPMU.c:54)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab2 is 2 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 56596 errors in context 21 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB0 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4C398C8: memset (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x40168E: generate_data_frame (iPMU.c:54)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab0 is 0 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 84894 errors in context 22 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CABB by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x40191F: generate_data_frame (iPMU.c:100)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cabb is 11 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 113188 errors in context 23 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE4 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x40201B: generate_data_frame (iPMU.c:239)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae4 is 52 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 113188 errors in context 24 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAE0 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401FA0: generate_data_frame (iPMU.c:233)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cae0 is 48 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 113192 errors in context 25 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAB6 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x40189B: generate_data_frame (iPMU.c:89)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cab6 is 6 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 478164 errors in context 26 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAC4 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401DAC: generate_data_frame (iPMU.c:197)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cac4 is 20 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+==24539== 
+==24539== 478164 errors in context 27 of 27:
+==24539== ----------------------------------------------------------------
+==24539== 
+==24539== Possible data race during write of size 1 at 0x593CAC0 by thread #1
+==24539== Locks held: none
+==24539==    at 0x4047E1: B_copy (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x401D10: generate_data_frame (iPMU.c:184)
+==24539==    by 0x405296: SEND_DATA (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x404767: main (iPMU.c:821)
+==24539== 
+==24539== This conflicts with a previous read of size 1 by thread #365
+==24539== Locks held: none
+==24539==    at 0x5361AD3: ??? (syscall-template.S:84)
+==24539==    by 0x4050F1: sender (in /home/gelli/Dropbox/iPDCandiPMU/iPMU/iPMU)
+==24539==    by 0x4C34DB6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x53586B9: start_thread (pthread_create.c:333)
+==24539==  Address 0x593cac0 is 16 bytes inside a block of size 500 alloc'd
+==24539==    at 0x4C2EFAF: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==24539==    by 0x403FD5: main (iPMU.c:686)
+==24539==  Block was alloc'd by thread #1
+==24539== 
+--24539-- 
+--24539-- used_suppression: 1772375 helgrind-glibc2X-005 /usr/lib/valgrind/default.supp:945
+--24539-- used_suppression:   4995 helgrind-glibc2X-004 /usr/lib/valgrind/default.supp:931
+--24539-- used_suppression:   7581 helgrind-glibc-io-xsputn-mempcpy /usr/lib/valgrind/default.supp:937
+--24539-- used_suppression:    369 helgrind-glibc2X-101 /usr/lib/valgrind/default.supp:980
+==24539== 
+==24539== ERROR SUMMARY: 1747705 errors from 27 contexts (suppressed: 1785320 from 88)
