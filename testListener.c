@@ -26,19 +26,19 @@ int main() {
       exit(EXIT_FAILURE); 
     } 
 
-    memset(&servaddr, 0, sizeof(servaddr)); 
+    memset(&servaddr, 0, sizeof(servaddr));
     
     // Filling server information 
     servaddr.sin_family = AF_INET; 
     servaddr.sin_port = htons(PORT); 
-    servaddr.sin_addr.s_addr = INADDR_ANY; 
+    servaddr.sin_addr.s_addr = inet_addr("10.250.1.99"); 
     
-    int n, len; 
+    int n, len;
     
     sendto(sockfd, (const char *)hello, strlen(hello), 
       MSG_CONFIRM, (const struct sockaddr *) &servaddr, 
         sizeof(servaddr)); 
-    // printf("Hello message sent.\n"); 
+    printf("Hello message sent.\n"); 
       
     n = recvfrom(sockfd, (char *)buffer, MAXLINE, 
           MSG_WAITALL, (struct sockaddr *) &servaddr, 
