@@ -157,10 +157,11 @@ void setup(){
 		printf("UDP Socket Bind :Sucessfull\n");
 	} 
 
+//edited by tapan start
 
 	/* Created socket and bound to port */
 	/* Create TCP socket and bind and listen on port */
-
+/*
 	if ((UL_TCP_sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
 		perror("socket");
 		exit(1);
@@ -197,8 +198,8 @@ void setup(){
 	} else {
 
 			printf("TCP Listen :Sucessfull\n");
-	}
-
+	}*/
+//edited by tapan end
 	sa.sa_handler = sigchld_handler; // reap all dead processes
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = SA_RESTART;
@@ -233,10 +234,11 @@ void setup(){
 
 
 	printf("\nUDP Listening on port %d for command frames from Upper PDC\n",UDPPORT);
-	printf("\nTCP Listening on port %d for command frames from Upper PDC\n",TCPPORT);
+	// printf("\nTCP Listening on port %d for command frames from Upper PDC\n",TCPPORT);
 	printf("\nPort %d for Sending the data frames for archival from iPDC\n\n",DBPORT);
 
-	UL_TCP_sin_size = sizeof(struct sockaddr_in);
+//edited by tapan
+	// UL_TCP_sin_size = sizeof(struct sockaddr_in);
 	UL_UDP_addr_len = sizeof(struct sockaddr);
 	//DB_addr_len = sizeof(struct sockaddr);
 
@@ -246,12 +248,12 @@ void setup(){
 		perror(strerror(err));
 		exit(1);	
 	}
-
-	if((err = pthread_create(&TCP_thread,NULL,UL_tcp,NULL))) {
+//edited by tapan
+/*	if((err = pthread_create(&TCP_thread,NULL,UL_tcp,NULL))) {
 
 		perror(strerror(err));
 		exit(1);	
-	}    
+	}    */
 }
 
 
@@ -333,7 +335,7 @@ void* UL_udp(){
 
 						} else {
 
-//							printf("Sent iPDC Configuration Frame\n");
+							printf("Sent iPDC Configuration Frame\n");
 						}
 						free(cfgframe);
 
@@ -501,7 +503,7 @@ void* UL_tcp_connection(void * temp_pdc) {
 
 			if(c  == 0x04) {	/* Check if it is a command frame from Upper PDC*/			
 
-//				printf("Command frame Received\n"); // Need to further check if the command is for cfg or data
+	//				printf("Command frame Received\n"); // Need to further check if the command is for cfg or data
 				c = UL_tcp_command[15];
 
 				if((c & 0x05) == 0x05){ //Send CFg frame to PDC
@@ -568,7 +570,7 @@ void PMU_process_UDP(unsigned char *udp_buffer,struct sockaddr_in PMU_addr,int s
 	c >>= 5;
 	if(c == 0x00){ 							/* If data frame */
 
-//		printf("entering dataparser\n");
+				// printf("entering dataparser\n");
 		stat_status = dataparser(udp_buffer);
 
 		/* Change in cfg frame is handled */
@@ -588,16 +590,15 @@ void PMU_process_UDP(unsigned char *udp_buffer,struct sockaddr_in PMU_addr,int s
 			printf("Data Invalid\n");
 
 		}
-
 	} else if(c == 0x03) { 						/* If configuration frame */
 
-//		printf("\nConfiguration frame received.\n");
+				// printf("\nConfiguration frame received.\n");
 		cfgparser(udp_buffer);
 
 		unsigned char *cmdframe = malloc(19);
 		cmdframe[18] = '\0';
 		create_command_frame(2,id,(char *)cmdframe);
-//		printf("\nReturn from create_command_frame\n");
+		//		printf("\nReturn from create_command_frame\n");
 
 		/* Command frame sent to send the data frames */
 		
@@ -658,12 +659,12 @@ void PMU_process_TCP(unsigned char tcp_buffer[],int sockfd) {
 
 	} else if(c == 0x03) { 						/* If configuration frame */
 
-//		printf("\nConfiguration frame received.\n");
+	//		printf("\nConfiguration frame received.\n");
 		cfgparser(tcp_buffer);
 		unsigned char *cmdframe = malloc(19);
 		cmdframe[18] = '\0';
 		create_command_frame(2,id,(char *)cmdframe);
-//		printf("Return from create_command_frame().\n");
+	//		printf("Return from create_command_frame().\n");
 
 		/* Command frame sent to send the data frames */
 		if (send(sockfd,cmdframe,18, 0)== -1)
@@ -675,7 +676,7 @@ void PMU_process_TCP(unsigned char tcp_buffer[],int sockfd) {
 		printf("\nErroneous frame\n");
 	}	
 	fflush(stdout);
-} 
+}
 
 
 /* ----------------------------------------------------------------------------	*/

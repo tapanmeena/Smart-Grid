@@ -34,10 +34,7 @@ void* sender(void * info)
 	struct timeval tm;
 	
 	while(1){
-	/*	printf("here1\n");*/
-	
 		pthread_cond_wait(&sending[index],&mutex_sending[index]);
-	/*	printf("here2\n");*/
 		int count = 0;
 		for(key = start; key < end; key++){
 			gettimeofday(&tm, NULL);
@@ -54,7 +51,7 @@ void* sender(void * info)
 			B_copy(data_frame[key],temp4,indx,4);
 			int k;
 	
-			printf("%d %d\n",pmuids[key],candidates_count[key]);
+			printf("In Sender Info %d %d\n",pmuids[key],candidates_count[key]);
 	
 			for(k=0; k<candidates_count[key]; k++){
 				if (sendto(UDP_sockfd[key],data_frame[key],data_frame_size[key]+8, 0,(struct sockaddr *)&UDP_addresses[key][k],sizeof(UDP_addresses[key][k])) == -1){
@@ -103,7 +100,7 @@ void* SEND_DATA()
 	
 	clock_gettime(CLOCK_REALTIME, cal_timeSpec);
 	gettimeofday(&tm, NULL);
-	printf("swa..1 %ld %ld\n",tm.tv_sec,tm.tv_usec);
+	// printf("swa..1 %ld %ld\n",tm.tv_sec,tm.tv_usec);
 
     	while(1)
     	{
@@ -114,17 +111,25 @@ void* SEND_DATA()
         	if (cal_timeSpec->tv_sec > cal_timeSpec1->tv_sec)
         	{
             		fsecNum = 1;
-            		printf("Inside Break\n");
             		break;
         	}
     	} // End of while-1
     	
 	gettimeofday(&tm, NULL);
-	printf("swa..2 %ld %ld\n",tm.tv_sec,tm.tv_usec);
+	// printf("swa..2 %ld %ld\n",tm.tv_sec,tm.tv_usec);
 
-	
 	while(1)
 	{
+		// if(waitSignal == 1)
+		// {
+		// 	printf("Inside Wait\n");
+		// }
+		// else 
+		if(waitSignal == 2)
+		{
+			printf("Data is OFF\n");
+			continue;
+		}
     	if (i != 0)
     	{
            		cal_timeSpec->tv_nsec += data_waiting;
@@ -195,7 +200,6 @@ void* SEND_DATA()
 			B_copy(data_frame[key],temp4,indx,4);
 			int k;
 			
-			
 			for(k=0; k<candidates_count[key]; k++)
 			{
 				// printf("Send to %hu\n", (struct sockaddr *)&UDP_addresses[key][k]);
@@ -205,14 +209,30 @@ void* SEND_DATA()
 					printf("Send Successfully.. %d Realbytes = %d\n",pmuids[key],data_frame_size[key]);
 					printf("%ld %ld\n",esoc,efsec);
 				}
+			/*				
+				char buffer1[1024];
+				memset(buffer1, '\0',1024);
+
+				int n;
+				if((n = recvfrom(UDP_sockfd[key], (char *)buffer1, 1024, 0, (struct sockaddr *)&UDP_addresses[key][k], sizeof(UDP_addresses[key][k]))) == -1)
+				{
+					perror("recvfrom");
+				}
+				else
+				{
+					printf("Recived from PDC : %s\n", buffer1);
+				}
+			*/
+				// printf(".");
 			}
 		}
 
 
-			gettimeofday(&tm, NULL);
-			printf("%ld %ld\n",tm.tv_sec,tm.tv_usec);		
+		gettimeofday(&tm, NULL);
+		// printf("Time %ld %ld\n",tm.tv_sec,tm.tv_usec);		
 
-			swadeshcount++;
+		swadeshcount++;
+
 		//** tapan changed end
 		i++;
 		clock_gettime(CLOCK_REALTIME, cal_timeSpec1);
@@ -233,8 +253,9 @@ void* UDP_PMU(void* i)
 	
 	// UDP_addr_len[index] = sizeof(UDP_addr[index]);
 
+	waitSignal = 0;
      /* This while is always in listening mode to receiving frames from a PDC and their respective reply */
-	while(1)	
+	while(1)
 	{
 		// printf("Inside\n");
 		memset(udp_command,'\0',18);
@@ -246,9 +267,8 @@ void* UDP_PMU(void* i)
 			perror("recvfrom");
 			exit(1);
 		}
-		else{	
+		else{
 			c = udp_command[1];
-			// printf("something print%c\n", c);
 			c <<= 1;
 			c >>= 5;
 
@@ -263,33 +283,72 @@ void* UDP_PMU(void* i)
 					// printf("from port %d and address %s\n",ntohs(UDP_addr[index].sin_port), inet_ntoa(UDP_addr[index].sin_addr));
 
 					if (sendto(UDP_sockfd[index],cfg_frame[index],cfg_frame_size[index], 0,(struct sockaddr *)&UDP_addresses[index][candidates_count[index]],sizeof(UDP_addresses[index][candidates_count[index]])) == -1) {
-
 						perror("sendto");
 					}
 					candidates_count[index] ++;
-					
+					// printf("##########################New Connection Initialized\n");
+			//edited by tapan start
+					// printf("Sending Something\n");
+			/*		char buffer[1024];
+					memset(buffer, '\0',1024);
+
+					int n;
+					if((n = recvfrom(UDP_sockfd[index], (char *)buffer, 1024, 0, (struct sockaddr *)&UDP_addresses[index][candidates_count[index]], sizeof(UDP_addresses[index][candidates_count[index]]))) == -1)
+					{
+						perror("recvfrom");
+					}
+					// buffer[n] = '\0';
+					printf("Recived from PDC : %s\n", buffer);*/
+			//edited by tapan end					
 					//udp_send_status = 0;
 					//printf("\niPMU CFG-2/1 frame [of %d Bytes] is sent to the PDC.\n", cfg_frame_size[index]);
 					
-					
 				}
+/*				else if((c & 0x03) == 0x03) // Command frame for Turn ON transmission request from PDC
+				{
+					pthread_mutex_lock(&mutex_data);
+				}*/
 				else if((c & 0x02) == 0x02)		/* Command frame for Turn ON transmission request from PDC */
-				{ 				
-					// printf("\nCommand Frame Received : Turn ON data transmission.");
-
+				{
+					printf("Frame for Data Transmission ON\n"); 
+					// pthread_mutex_lock(&mutex_data);
+					printf("Wait Signal Value %d\n", waitSignal);		
+					if(waitSignal>1)
+					{
+						printf("(Turn ON Signal)\n");
+						waitSignal--;
+						// pthread_mutex_unlock(&mutex_data);
+						continue;
+					}
+					waitSignal = 1;
+					// pthread_mutex_unlock(&mutex_data);
+					printf("\nCommand Frame Received : Turn ON data transmission.\n");
 				     	pthread_mutex_lock(&mutex_data);
 						send_cfg_count++;
 						printf("send_cfg_count = %d\n",send_cfg_count);
 						if(send_cfg_count == dup_total_buses)
 							pthread_cond_signal(&cond);
 						pthread_mutex_unlock(&mutex_data);
-
-					// printf(" --> Data is ON.\n");
-	/*					pthread_exit(NULL);*/
+					printf(" --> Data is ON.\n");
+						/*pthread_exit(NULL);*/
+				}
+				else if((c & 0x01) == 0x01)
+				{
+					printf("Command Frame is for Data Transmission OFF\n");
+					waitSignal++;
+/*					int n = pthread_cancel(&sending[index]);
+					if(n == 0)
+					{
+						printf(" --> Data is OFF.\n");
+					}
+					else
+						printf("Unable to kill data transmission\n");*/
+					// pthread_cond_wait(&cond,&mutex_data);
+					printf("Data Transmission is OFF\n"); 
 				}
 				else
 				{
-					printf("\nCan't recognize the received Command Frame!\n");						
+					printf("\nCan't recognize the received Command Frame! %u\n",c);
 					continue;				
 				}	
 			}	

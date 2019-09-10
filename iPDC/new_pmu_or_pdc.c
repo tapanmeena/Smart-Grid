@@ -404,22 +404,23 @@ void* connect_pmu_udp(void *temp) {
 		exit(1);
 	}
 
-	bzero(&PMU_addr,sizeof(PMU_addr));
-	PMU_addr.sin_family = AF_INET;
-	PMU_addr.sin_addr.s_addr =  inet_addr(temp_pmu->ip); 
-	PMU_addr.sin_port = htons(port_num);
-	memset(&(PMU_addr.sin_zero), '\0', 8);   // zero the rest of the struct
+	{
+		bzero(&PMU_addr,sizeof(PMU_addr));
+		PMU_addr.sin_family = AF_INET;
+		PMU_addr.sin_addr.s_addr =  inet_addr(temp_pmu->ip); 
+		PMU_addr.sin_port = htons(port_num);
+		memset(&(PMU_addr.sin_zero), '\0', 8);   // zero the rest of the struct
 
-	/* Copy the information of Lower Layer PMU/PDC to the node */
-	temp_pmu->thread_id = pthread_self();
-	bzero(&temp_pmu->llpmu_addr,sizeof(PMU_addr));
-	temp_pmu->llpmu_addr.sin_family = AF_INET;
-	temp_pmu->llpmu_addr.sin_addr.s_addr =  inet_addr(temp_pmu->ip);  
-	temp_pmu->llpmu_addr.sin_port = htons(port_num);
-	memset(&(temp_pmu->llpmu_addr.sin_zero), '\0', 8);   // zero the rest of the struct
-	temp_pmu->sockfd = udp_sockfd;
-	temp_pmu->up = 1;
-
+		/* Copy the information of Lower Layer PMU/PDC to the node */
+		temp_pmu->thread_id = pthread_self();
+		bzero(&temp_pmu->llpmu_addr,sizeof(PMU_addr));
+		temp_pmu->llpmu_addr.sin_family = AF_INET;
+		temp_pmu->llpmu_addr.sin_addr.s_addr =  inet_addr(temp_pmu->ip);  
+		temp_pmu->llpmu_addr.sin_port = htons(port_num);
+		memset(&(temp_pmu->llpmu_addr.sin_zero), '\0', 8);   // zero the rest of the struct
+		temp_pmu->sockfd = udp_sockfd;
+		temp_pmu->up = 1;
+	}
 	/* Add PMU*/
 	add_PMU_Node(temp_pmu);	
 
@@ -435,22 +436,99 @@ void* connect_pmu_udp(void *temp) {
 	if ((n = sendto(udp_sockfd,cmdframe, 18, 0, (struct sockaddr *)&PMU_addr,sizeof(PMU_addr)) == -1)) {
 		perror("sendto"); 
 	} else {
-
 		free(cmdframe);
-
 		/* UDP data Received */
+		int zz = 1;
+		int dataOff = 0;
 		while(1) {
+			unsigned char *cmdframe = malloc(19);
+			cmdframe[18] = '\0';
 			// printf("Whenever Datagram Received\n");
-			memset(udp_BUF,'\0',MAXBUFLEN * sizeof(unsigned char));
 
-			bytes_read = recvfrom (udp_sockfd, udp_BUF,MAXBUFLEN-1,0,(struct sockaddr *)&their_addr,(socklen_t *)&addr_len); 				
+			//edited by Tapan Start
+			// printf("Z Value %d\n", zz);
+			zz++;
+
+			
+			if(zz%50 == 0 && dataOff)
+			{
+				printf("Inside ZZZZZ\n");
+				create_command_frame(1,temp_pmu->pmuid,(char *)cmdframe);
+				if(sendto(udp_sockfd, cmdframe, 18, 0, (struct sockaddr *)&PMU_addr,sizeof(PMU_addr))==-1)
+				{
+					perror("sendto");
+				}
+				else
+				{
+					printf("Command Frame sent Successfully for Data transmission ON\n");
+				}
+				dataOff = 0;
+			}
+			else if(zz%50 == 0 && !dataOff)
+			{
+				create_command_frame(3,temp_pmu->pmuid, (char*)cmdframe);
+				if(sendto(udp_sockfd, cmdframe, 18, 0, (struct sockaddr *)&PMU_addr,sizeof(PMU_addr))==-1)
+				{
+					perror("sendto");
+				}
+				else
+				{
+					printf("Command Frame sent Successfully for Data transmission OFF\n");
+				}
+				dataOff = 1;
+			}
+			if(dataOff)
+				continue;
+			// memset(udp_BUF,'\0',MAXBUFLEN * sizeof(unsigned char));
+			bytes_read = recvfrom (udp_sockfd, udp_BUF,MAXBUFLEN-1,0,(struct sockaddr *)&their_addr,(socklen_t *)&addr_len);
+
+/*			printf("Z value %d\n", zz);
+			if(zz != 1)
+			{
+				char sendBuffer[1024];
+				sprintf(sendBuffer, "Data is Successfully Sent from LPDC %d to PMU %s : %d", temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
+
+				if(sendto(udp_sockfd, sendBuffer, sizeof(sendBuffer), 0, (struct sockaddr *)&their_addr,sizeof(their_addr)) == -1)
+				{
+					printf("Inside Sendto result Error\n");
+					perror("sendto");
+				}
+				else
+				{
+					printf("\nData is Successfully Sent from LPDC %d to PMU %s : %d\n",temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
+				}
+			}
+			zz++;*/
+		//edited by Tapan End
+			//edited by tapan start
+	/*			unsigned char *sendBuffer = malloc(19);
+				sendBuffer[18] = '\0';
+				create_command_frame(1, temp_pmu->pmuid, (char *)cmdframe);
+	*/			
+			// char sendBuffer[1024] = "Hello From PDC";
+	/*			char sendBuffer[1024];
+			sprintf(sendBuffer, "Data is Successfully Sent from LPDC %d to PMU %s : %d", temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
+
+			if(sendto(udp_sockfd, sendBuffer, sizeof(sendBuffer), 0, (struct sockaddr *)&their_addr,sizeof(their_addr)) == -1)
+			{
+				printf("Inside Sendto result Error\n");
+				perror("sendto");
+			}
+			else
+			{
+				// printf("Printing IP Address\n");
+				// printf("got something %s\n",inet_ntoa(their_addr.sin_addr));
+				printf("\nData is Successfully Sent from LPDC %d to PMU %s : %d\n",temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
+			}
+	*/
+			//Edited by Tapan End
 			if(bytes_read == -1) {
 
 				perror("recvfrom");
 				exit(1);
 
 			} else { // New Datagram received
-				printf("Whenever Datagram Received\n");
+				// printf("Whenever Datagram Received\n");
 				
 				unsigned char c = udp_BUF[1];
 				c <<= 1;
@@ -458,29 +536,21 @@ void* connect_pmu_udp(void *temp) {
 
 				int flag = 0;
 				if(LLfirst == NULL) {
-
 					flag = 0;
-
 				} else {
-
 					t = LLfirst;
 					while(t != NULL) {
-
 						if((!strcmp(t->ip,inet_ntoa(their_addr.sin_addr))) 
 								&& (!strncasecmp(t->protocol,"UDP",3))) {
-
 							flag = 1;
 							break;			
-
 						} else {
-
 								t = t->next;
 						}
 					}
 				}
 	
 				if(flag) {
-
 					ptr = udp_BUF;
 					ptr += 2;					
 					copy_cbyc(length,ptr,2);
@@ -491,7 +561,6 @@ void* connect_pmu_udp(void *temp) {
 					frame_crc <<= 8;
 					frame_crc |= *(ptr + 1);
 					if(frame_crc != cal_crc) {
-
 						printf("%d %d\n",flen,bytes_read);
 						printf("%x\n",frame_crc);
 						printf("%d\n",cal_crc);
@@ -500,88 +569,87 @@ void* connect_pmu_udp(void *temp) {
 						continue;		
 					} 
 					udp_BUF[bytes_read] = '\0';					
+
+					if(c == 0x00){
+						int indx = bytes_read-8;
+						unsigned char temp5[5],*d;
+						long int pmusoc, pmufracsec;
 				
-				if(c == 0x00){
-					int indx = bytes_read-8;
-					unsigned char temp5[5],*d;
-					long int pmusoc, pmufracsec;
-			
-					d =  udp_BUF;
-					d += indx;
-			
-					//SEPARATE soc
-					memset(temp5,'\0',5);
-					copy_cbyc (temp5,d,4);
-					pmusoc = to_long_int_convertor(temp5);
-					d += 4;	
+						d =  udp_BUF;
+						d += indx;
+				
+						//SEPARATE soc
+						memset(temp5,'\0',5);
+						copy_cbyc (temp5,d,4);
+						pmusoc = to_long_int_convertor(temp5);
+						d += 4;	
 
-					//SEPARATE fracsec
-					memset(temp5,'\0',5);
-					copy_cbyc (temp5,d,4);
-					pmufracsec = to_long_int_convertor(temp5);
-			
-					int id;
-					unsigned long soc,fsec;
-					char idcode[2],soC[4],fracsec[3];
+						//SEPARATE fracsec
+						memset(temp5,'\0',5);
+						copy_cbyc (temp5,d,4);
+						pmufracsec = to_long_int_convertor(temp5);
+				
+						int id;
+						unsigned long soc,fsec;
+						char idcode[2],soC[4],fracsec[3];
 
-					ptr = udp_BUF;
-					ptr+=4;
-					copy_cbyc(idcode,ptr,2);
-					ptr+=2;
-					copy_cbyc(soC,ptr,4);
-					ptr+=5;		
-					copy_cbyc(fracsec,ptr,3);
+						ptr = udp_BUF;
+						ptr+=4;
+						copy_cbyc(idcode,ptr,2);
+						ptr+=2;
+						copy_cbyc(soC,ptr,4);
+						ptr+=5;		
+						copy_cbyc(fracsec,ptr,3);
 
-					id = to_intconvertor(idcode);
-					soc= to_long_int_convertor(soC);
-					fsec = to_long_int_convertor1(fracsec);
-					
-					//int tt = timestampCount%dropORdelayPeriod;
-					//if(tt == 0 && delayORdrop == 0 && id == delayDropPMUID) 
-					if(delayORdrop == 0 && id == delayDropPMUID) {
-
-						//usleep(timedelay);					
-						struct pthread_args *args=(struct pthread_args*)malloc(sizeof(struct pthread_args));
-						args->udp_BUF = malloc(bytes_read * sizeof(unsigned char));
-						if(args->udp_BUF == NULL)
-							{
-							printf("MEM ALLLOC PROBLEM\n");
-							exit(0);
-						}
-
-						bzero(&args->PMU_addr,sizeof(PMU_addr));
-						args->PMU_addr.sin_family=PMU_addr.sin_family;
-						args->PMU_addr.sin_addr.s_addr=PMU_addr.sin_addr.s_addr;
-						args->PMU_addr.sin_port=PMU_addr.sin_port;
-						memset(&(args->PMU_addr.sin_zero), '\0', 8);   // zero the rest of the struct
-
-						args->PMU_addr = PMU_addr;
-						copy_cbyc(args->udp_BUF,udp_BUF,bytes_read);
-
-						args->udp_sockfd = udp_sockfd;
-						args->bytes_read = bytes_read;				
-						args->timedelay = timedelay;
-              			createStartTimerThreadAtDelayedArrival(args);
-              			continue;
-					}						
+						id = to_intconvertor(idcode);
+						soc= to_long_int_convertor(soC);
+						fsec = to_long_int_convertor1(fracsec);
 						
-					else if(delayORdrop == 1 && id == delayDropPMUID) {
-						// droppacket						
-						//printf("Dropped packet Id %d\n", id);
-							continue;
-					}
-					else {
+						//int tt = timestampCount%dropORdelayPeriod;
+						//if(tt == 0 && delayORdrop == 0 && id == delayDropPMUID) 
+						if(delayORdrop == 0 && id == delayDropPMUID) {
 
-						int index = matchDataFrameTimeToTSBTime(soc,fsec);
-						printf("index %d\n", index);
-						if(index != 99) {							
-							Analysing(10,pmusoc,pmufracsec,index); 	
+							//usleep(timedelay);					
+							struct pthread_args *args=(struct pthread_args*)malloc(sizeof(struct pthread_args));
+							args->udp_BUF = malloc(bytes_read * sizeof(unsigned char));
+							if(args->udp_BUF == NULL)
+								{
+								printf("MEM ALLLOC PROBLEM\n");
+								exit(0);
+							}
+
+							bzero(&args->PMU_addr,sizeof(PMU_addr));
+							args->PMU_addr.sin_family=PMU_addr.sin_family;
+							args->PMU_addr.sin_addr.s_addr=PMU_addr.sin_addr.s_addr;
+							args->PMU_addr.sin_port=PMU_addr.sin_port;
+							memset(&(args->PMU_addr.sin_zero), '\0', 8);   // zero the rest of the struct
+
+							args->PMU_addr = PMU_addr;
+							copy_cbyc(args->udp_BUF,udp_BUF,bytes_read);
+
+							args->udp_sockfd = udp_sockfd;
+							args->bytes_read = bytes_read;				
+							args->timedelay = timedelay;
+	              			createStartTimerThreadAtDelayedArrival(args);
+	              			continue;
+						}						
+							
+						else if(delayORdrop == 1 && id == delayDropPMUID) {
+							// droppacket						
+							printf("Dropped packet Id %d\n", id);
+								continue;
 						}
-					}
-				}			
-		
-				//Call the udphandler							 			
-				PMU_process_UDP(udp_BUF,PMU_addr,udp_sockfd);
+						else {
+							int index = matchDataFrameTimeToTSBTime(soc,fsec);
+							// printf("index %d\n", index);
+							if(index != 99) {							
+								Analysing(10,pmusoc,pmufracsec,index); 	
+							}
+						}
+					}			
+			
+					//Call the udphandler							 			
+					PMU_process_UDP(udp_BUF,PMU_addr,udp_sockfd);
 
 				} else {
 
@@ -1404,7 +1472,6 @@ int add_PDC(char ip[], char protocol[]) {
 	return 0;			
 }
 
-
 /* ----------------------------------------------------------------------------	*/
 /* FUNCTION  remove_PDC((char ip[], char port_num[], char protocol[]):          */
 /* ----------------------------------------------------------------------------	*/
@@ -1565,7 +1632,7 @@ void create_command_frame(int type,int pmu_id,char cmdframe[]) {
 	chk = compute_CRC((unsigned char *)cmdframe,index);
 	cmdframe[index++] = (chk >> 8) & ~(~0<<8);  	/* CHKSUM high byte; */
 	cmdframe[index] = (chk ) & ~(~0<<8);     	/* CHKSUM low byte;  */
-/*	printf("In new_pmu : %x %x\n",cmdframe[index-1],cmdframe[index]);*/
+	/*	printf("In new_pmu : %x %x\n",cmdframe[index-1],cmdframe[index]);*/
 	break;
 
 	case 2 : byte_by_byte_copy((unsigned char *)cmdframe,CMDSYNC,index,2);  // SEND DATA ON

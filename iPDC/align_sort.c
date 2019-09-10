@@ -582,7 +582,8 @@ void intermediate_dispatch(int xx) {
 /* ----------------------------------------------------------------------------	*/
 
 void dispatch(int index) {
-/*printf("Dispatch\n");*/
+	//EDITED BY TAPAN START
+/*		printf("Dispatch\n");
 		int size,flag = 0;
 		Tsb_Count--;
 		unsigned int tsb_soc = to_long_int_convertor(TSB[index].soc);
@@ -620,8 +621,8 @@ void dispatch(int index) {
 			if((err = pthread_attr_setschedpolicy(&attr,SCHED_FIFO))) {
 				perror(strerror(err));		     
 				exit(1);
-			}  
-	
+			}  */
+	//EDITED BY TAPAN END
 			/*if(angleDiffApp == true) {
 
 				pthread_t t;
@@ -647,9 +648,10 @@ void dispatch(int index) {
 					perror(strerror(err));		     
 					exit(1);
 				}
-			}	*/					
-		}		
-
+			}						
+		}		*/
+	//EDITED BY TAPAN START
+/*
 		size = create_dataframe(index);
 
 		if(IamLPDC == true) {
@@ -725,7 +727,9 @@ void dispatch(int index) {
 		}
 		pthread_mutex_unlock(&mutex_Upper_Layer_Details);
 		//free(tsb_fsec);
-		clear_TSB(index);
+		clear_TSB(index);*/
+
+	//EDITED BY TAPAN END
 }
 
 

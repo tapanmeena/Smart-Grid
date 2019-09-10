@@ -136,7 +136,7 @@ void generate_data_frame(int key)
 		
 	d1 = strtok (mData,","); 
 	d1 = strtok (NULL,","); 
-	//printf("start = %s\n", d1);
+	// printf("start = %s\n", d1);
 	/* Fix Point Phasor Measurements */
 	
 		if(cfg_infos[key]->cfg_pf == 0)		
@@ -269,7 +269,7 @@ void generate_data_frame(int key)
 				temp3[2] = cfg_infos[key]->cfg_analog_anunit[k++];
 				vall = c2li_3byte(temp3);
 
-				d2 = strtok (NULL,","); 
+				d2 = strtok (NULL,",");
 				valf = (atof(d2));
 				f2c(valf,temp4);
 				B_copy(data_frame[key],temp4,indx,4);
@@ -280,16 +280,17 @@ void generate_data_frame(int key)
 	
 	/* Calculate and insert the Checksum value in data frame (till now) */
 	chk = compute_CRC(data_frame[key],indx);
-
+	// printf("CRC %u with Length %d\n", chk, indx);
      data_frame[key][indx++] = (chk >> 8) & ~(~0<<8);  	/* CHKSUM high byte; */
      data_frame[key][indx++] = (chk ) & ~(~0<<8);     	/* CHKSUM low byte;  */
 
-	/*	printf("\nData Frame Size = %d : ",indx);
-		for (i=0; i<indx; i++)
-		{
-			printf("%X-",data_frame[key][i]);
-		}
-	*/
+/*	printf("\nData Frame Size = %d : ",indx);
+	int i;
+	for (i=0; i<indx; i++)
+	{
+		printf("%X-",data_frame[key][i]);
+	}*/
+
 } // End of generate_data_frame;
 
 
@@ -783,7 +784,7 @@ int main(int argc,char **argv)
 		
 		if(i==div_count-1){
 			sd[i]->end = pmu_count;		
-	/*			sd[i]->end = 100;*/
+		/*			sd[i]->end = 100;*/
 		}else{
 			sd[i]->end = k+50;		
 			k += 50;

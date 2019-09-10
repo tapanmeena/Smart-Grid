@@ -43,7 +43,6 @@ int UL_UDP_addr_len,UL_TCP_sin_size, numbytes;
 unsigned char UL_udp_command[19];
 unsigned char UL_tcp_command[19];
 
-
 /* ---------------------------------------------------------------- */
 /*                         global Data Structure                    */
 /* ---------------------------------------------------------------- */

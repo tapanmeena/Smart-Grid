@@ -91,7 +91,7 @@ char* measurement_Return (int key)
 	
 	/*	for(i=0; i<3; i++)	*/
 	/*		getdelim (&l1, &l2, ('\n'), fp_csv);*/
-	
+	// printf("Inside Measurement Functions\n");
 	while(1)
 	{
 		while ((result = getdelim (&l1, &l2, ('\n'), fd_csv[key])) >0)
@@ -307,13 +307,13 @@ uint16_t compute_CRC(unsigned char *message,int length)
 
 	for(i=0;i<length;i++)
 	{
-		temp=(crc>>8)^message[i];
-		crc<<=8;
-		quick=temp ^ ( temp >>4);
-		crc ^=quick;
-		quick<<=5;
-		crc ^=quick;
-		quick <<=7;
+		temp = (crc>>8)^message[i];
+		crc <<= 8;
+		quick = temp ^ ( temp >>4);
+		crc ^= quick;
+		quick <<= 5;
+		crc ^= quick;
+		quick <<= 7;
 		crc ^= quick;
 	}
 	return crc;

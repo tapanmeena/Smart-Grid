@@ -1207,7 +1207,7 @@ int dataparser(unsigned char data[]) {
 	} else {
 
 		//No match for configuration frame
-		printf("Configuration is not fresent for received data frame! %d\n",id);	
+		printf("Configuration is not present for received data frame! %d\n",id);	
 	}  
 
 	if((config_change == 14) ||(config_change == 10)) 
