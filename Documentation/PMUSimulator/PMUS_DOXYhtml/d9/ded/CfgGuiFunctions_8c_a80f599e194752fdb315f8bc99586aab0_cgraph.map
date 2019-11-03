@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a131f4ac25e7412e7a999a485e4117a44" title="validation_ph_an_num" alt="" coords="177,320,327,349"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#a38c20b12f67cb09d8ec8059224c568e6" title="isNumber" alt="" coords="1525,268,1600,297"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a6e94cd1c484e61e246dd50ec6b2c347f" title="new_channel_names_for_analog" alt="" coords="377,216,585,245"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#af43954703f1a1b1f2b56b4a1a7dd4507" title="validation_result" alt="" coords="1671,219,1785,248"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a87cdcafad4e9e72411007c4bd7a37c69" title="new_channel_names_for_phasor" alt="" coords="376,372,587,401"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a0c06a0ec4e9bc796b661c0f6dc892151" title="change_data_rate_option" alt="" coords="884,164,1049,193"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a16e06ca6d6e3b8bce68f5fd7c18c3797" title="validation_new_analog_names" alt="" coords="636,216,833,245"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#ab199c72d8df0612d70081bfb4d8dc4d5" title="enter_new_data_rate" alt="" coords="1099,164,1240,193"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a76ee0f377a397426f50ff03e721a30ea" title="final_cfg_update_call" alt="" coords="1300,111,1444,140"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#aa4e80be8dd56202660f7201f51a61f0f" title="validation_new_data_rate" alt="" coords="1288,164,1456,193"/>
+<area shape="rect" href="$db/d74/CfgFunction_8c.html#a487fa1c4d6b218127774845eb9e23480" title="reconfig_cfg_CC" alt="" coords="1504,112,1621,141"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#aa0fa65a4b1d023b300bfbc00d3dae0b1" title="B_copy" alt="" coords="1696,112,1760,141"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#adc5cecb6bf8a8388ee03d9b77bbb3ea7" title="compute_CRC" alt="" coords="1676,165,1780,195"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a0be9189ec64523a4e8525d9d24501b9d" title="i2c" alt="" coords="1709,5,1747,35"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a774184bfed93069a607dbf174023e421" title="li2c" alt="" coords="1708,59,1748,88"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a327d1aab1bd1a42c938e6bfde6ff4a53" title="validation_new_phasor_names" alt="" coords="636,372,833,401"/>
+</map>

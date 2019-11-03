@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d2/d72/parser_8c.html#a781cb1bb39a55ec5e21b60c4b89565b8" title="check_statword" alt="" coords="153,5,265,35"/>
+<area shape="rect" id="node5" href="$d2/d72/parser_8c.html#af3a6687e5acbde26caa530c5b5d724cf" title="copy_cbyc" alt="" coords="167,58,252,89"/>
+<area shape="rect" id="node7" href="$d2/d72/parser_8c.html#a8d761047c9548e04d210cc9dfff570da" title="decode_ieee_single" alt="" coords="141,111,277,142"/>
+<area shape="rect" id="node9" href="$d2/d72/parser_8c.html#ab3ddd3da69dfca3848e78ad92127e9dc" title="to_intconvertor" alt="" coords="156,165,263,195"/>
+<area shape="rect" id="node11" href="$d2/d72/parser_8c.html#a079d19d1e274b496720ee68245706425" title="to_long_int_convertor" alt="" coords="136,218,283,249"/>
+</map>

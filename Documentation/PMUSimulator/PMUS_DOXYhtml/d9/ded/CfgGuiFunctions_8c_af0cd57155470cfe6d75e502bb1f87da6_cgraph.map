@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#a780c072a830f75e21e054bb107913a44" title="Pmu_Help" alt="" coords="221,371,301,400"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#adf4b5f4216b3280ae946f7c05e26f224" title="validation_cfg_create" alt="" coords="189,424,333,453"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a3fbf8af3fba0828c849af5bd39a1a40c" title="channel_names_for_phasor" alt="" coords="383,372,561,401"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#af43954703f1a1b1f2b56b4a1a7dd4507" title="validation_result" alt="" coords="2004,325,2119,355"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#a38c20b12f67cb09d8ec8059224c568e6" title="isNumber" alt="" coords="435,476,509,505"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a7d584f91b1eea81bdc53a7ba5971098f" title="validation_phasor_names" alt="" coords="611,372,779,401"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a1fcadf1cee22ec2cb09f37a718f4cfe2" title="channel_names_for_analog" alt="" coords="828,321,1007,351"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a49b43e8e26ce695af11fa51dd0cd70e2" title="channel_names_for_digital" alt="" coords="1272,271,1448,300"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#ae6d44e618cb1fded2ad30adcd214c437" title="validation_analog_names" alt="" coords="1056,321,1224,351"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a525dbb5d0d59bf492118ecd1937ec000" title="final_cfg_create" alt="" coords="1711,220,1823,249"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a8352dd4a42eb4efb98a952c0a8da145a" title="validation_digital_names" alt="" coords="1497,271,1660,300"/>
+<area shape="rect" href="$db/d74/CfgFunction_8c.html#a03d33fb72fc5c5131549a6ff4b447133" title="create_cfg" alt="" coords="1872,167,1955,196"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#aa0fa65a4b1d023b300bfbc00d3dae0b1" title="B_copy" alt="" coords="2029,5,2093,35"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a88bb1d1644aa4e5fdb0fd6054b88083d" title="c2i" alt="" coords="2043,59,2080,88"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a72d072c06810bb0d33d24b6ab2fa7cc7" title="c2li" alt="" coords="2041,112,2081,141"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#adc5cecb6bf8a8388ee03d9b77bbb3ea7" title="compute_CRC" alt="" coords="2009,165,2113,195"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a0be9189ec64523a4e8525d9d24501b9d" title="i2c" alt="" coords="2043,219,2080,248"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a774184bfed93069a607dbf174023e421" title="li2c" alt="" coords="2041,272,2081,301"/>
+</map>

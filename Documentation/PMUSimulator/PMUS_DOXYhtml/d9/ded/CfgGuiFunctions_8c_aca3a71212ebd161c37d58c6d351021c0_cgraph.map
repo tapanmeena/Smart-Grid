@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a90e7ca2b9d45173b319b680ab69b72c8" title="validation_hdr_frm" alt="" coords="189,165,317,195"/>
+<area shape="rect" href="$db/d74/CfgFunction_8c.html#a2edc46fddd5b47c43a81dbb9b910fb4c" title="header_frm_gen" alt="" coords="365,139,480,168"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#af43954703f1a1b1f2b56b4a1a7dd4507" title="validation_result" alt="" coords="529,219,644,248"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#aa0fa65a4b1d023b300bfbc00d3dae0b1" title="B_copy" alt="" coords="555,5,619,35"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#adc5cecb6bf8a8388ee03d9b77bbb3ea7" title="compute_CRC" alt="" coords="535,59,639,88"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a0be9189ec64523a4e8525d9d24501b9d" title="i2c" alt="" coords="568,112,605,141"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a774184bfed93069a607dbf174023e421" title="li2c" alt="" coords="567,165,607,195"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="G" name="G">
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a09615aac275e2777e713dbd897269878" title="cfg_STAT_change" alt="" coords="407,53,532,83"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#ae4c905c4791c5fc606927711456b00a3" title="Change_pmu_configuration" alt="" coords="179,169,357,199"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#af43954703f1a1b1f2b56b4a1a7dd4507" title="validation_result" alt="" coords="2076,199,2191,228"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a11ac2af891a9289dcfb040791ee9f3c7" title="new_phasor_num" alt="" coords="408,169,531,199"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a3356220f72b2f6cf921af5b0e119aaa7" title="remove_phasor_num" alt="" coords="587,299,728,328"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a131f4ac25e7412e7a999a485e4117a44" title="validation_ph_an_num" alt="" coords="583,169,732,199"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#a38c20b12f67cb09d8ec8059224c568e6" title="isNumber" alt="" coords="1931,300,2005,329"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a6e94cd1c484e61e246dd50ec6b2c347f" title="new_channel_names_for_analog" alt="" coords="783,299,991,328"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a87cdcafad4e9e72411007c4bd7a37c69" title="new_channel_names_for_phasor" alt="" coords="781,169,992,199"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a0c06a0ec4e9bc796b661c0f6dc892151" title="change_data_rate_option" alt="" coords="1289,299,1455,328"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a16e06ca6d6e3b8bce68f5fd7c18c3797" title="validation_new_analog_names" alt="" coords="1041,299,1239,328"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#ab199c72d8df0612d70081bfb4d8dc4d5" title="enter_new_data_rate" alt="" coords="1504,352,1645,381"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a76ee0f377a397426f50ff03e721a30ea" title="final_cfg_update_call" alt="" coords="1705,481,1849,511"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#aa4e80be8dd56202660f7201f51a61f0f" title="validation_new_data_rate" alt="" coords="1693,352,1861,381"/>
+<area shape="rect" href="$db/d74/CfgFunction_8c.html#a487fa1c4d6b218127774845eb9e23480" title="reconfig_cfg_CC" alt="" coords="1909,481,2027,511"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#aa0fa65a4b1d023b300bfbc00d3dae0b1" title="B_copy" alt="" coords="2101,508,2165,537"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#adc5cecb6bf8a8388ee03d9b77bbb3ea7" title="compute_CRC" alt="" coords="2081,561,2185,591"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a0be9189ec64523a4e8525d9d24501b9d" title="i2c" alt="" coords="2115,401,2152,431"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a774184bfed93069a607dbf174023e421" title="li2c" alt="" coords="2113,455,2153,484"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a80f599e194752fdb315f8bc99586aab0" title="new_analog_num" alt="" coords="1312,195,1432,224"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a327d1aab1bd1a42c938e6bfde6ff4a53" title="validation_new_phasor_names" alt="" coords="1041,144,1239,173"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a3b07e4d781938846b3ff103cc4c2d20d" title="validation_remove_ph_an_num" alt="" coords="1040,403,1240,432"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a54c4703e571640d34ef09bd7c2583c47" title="remove_analog_num" alt="" coords="1301,352,1443,381"/>
+</map>

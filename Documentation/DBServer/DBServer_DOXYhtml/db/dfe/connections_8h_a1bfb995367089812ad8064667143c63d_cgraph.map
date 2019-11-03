@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d2/d72/parser_8c.html#af3a6687e5acbde26caa530c5b5d724cf" title="copy_cbyc" alt="" coords="807,41,892,71"/>
+<area shape="rect" id="node5" href="$df/dd7/connections_8c.html#ad7f8450aad1f90b1ee0232aea90e4ea3" title="DB_udphandler" alt="" coords="124,119,233,150"/>
+<area shape="rect" id="node7" href="$df/dd7/connections_8c.html#a98c56b1f61c42125245c900e9f29acb7" title="DB_process_UDP" alt="" coords="284,171,409,202"/>
+<area shape="rect" id="node9" href="$d2/d72/parser_8c.html#a604206c71877a0fca13fb92ec0718d4e" title="cfgparser" alt="" coords="460,171,535,202"/>
+<area shape="rect" id="node29" href="$d2/d72/parser_8c.html#a335f7c86d24d49f759fad395137b99be" title="dataparser" alt="" coords="615,301,697,331"/>
+<area shape="rect" id="node11" href="$d2/d72/parser_8c.html#a71da7d236fd6fc29232d03d8516e6c13" title="cfginsert" alt="" coords="620,197,692,227"/>
+<area shape="rect" id="node13" href="$d2/d72/parser_8c.html#a079d19d1e274b496720ee68245706425" title="to_long_int_convertor" alt="" coords="776,194,923,225"/>
+<area shape="rect" id="node16" href="$dc/db9/dallocate_8c.html#ae0f491bd4ea0ec52dba477499faaf122" title="free_cfgframe_object" alt="" coords="584,381,728,411"/>
+<area shape="rect" id="node20" href="$d2/d72/parser_8c.html#af8e1dc1611c018e8bfe11eeb3505c8f6" title="remove_old_cfg" alt="" coords="599,93,713,123"/>
+<area shape="rect" id="node25" href="$d2/d72/parser_8c.html#ab3ddd3da69dfca3848e78ad92127e9dc" title="to_intconvertor" alt="" coords="796,247,903,278"/>
+<area shape="rect" id="node18" href="$dc/db9/dallocate_8c.html#acdd6352630264d48affb8e423014507e" title="free_2darray" alt="" coords="803,407,896,438"/>
+<area shape="rect" id="node23" href="$d2/d72/parser_8c.html#a12eb97b1aa14a36d0a01ea7b268eaa96" title="ncmp_cbyc" alt="" coords="805,94,893,125"/>
+<area shape="rect" id="node31" href="$d2/d72/parser_8c.html#a781cb1bb39a55ec5e21b60c4b89565b8" title="check_statword" alt="" coords="793,301,905,331"/>
+<area shape="rect" id="node34" href="$d2/d72/parser_8c.html#a8d761047c9548e04d210cc9dfff570da" title="decode_ieee_single" alt="" coords="781,354,917,385"/>
+</map>

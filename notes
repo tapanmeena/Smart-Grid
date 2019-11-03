@@ -1,0 +1,10 @@
+A simple structure of a synchrophasor network consists of the PMU and PDC as shown in Figure 2. If
+multiple intelligent electronic devices (IEDs) in a substation provide synchrophasor measurements, a local
+PDC may be deployed in the substation. Typically, many PMUs located at various key substations gather
+data and send it in real time to a PDC at the utility location where the data is aggregated. The data collected
+by PDCs may be used to support many applications, ranging from visualization of information and alarms
+for situational awareness, to ones that provide sophisticated analytical, control, or protection functionality.
+Applications, such as dynamics monitoring, use full-resolution real-time data along with grid models to
+support both operating and planning functions. The application displays locally measured frequency, primary voltages, currents, real and reactive power flows, and other quantities for system operators. Many
+PDCs belonging to different utilities can be connected to a common central PDC to aggregate data across
+the utilities, in order to provide an interconnection-wide snapshot of the power grid measurements. 

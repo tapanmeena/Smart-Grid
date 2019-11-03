@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d2/d72/parser_8c.html#a71da7d236fd6fc29232d03d8516e6c13" title="cfginsert" alt="" coords="167,5,239,35"/>
+<area shape="rect" id="node5" href="$d2/d72/parser_8c.html#a079d19d1e274b496720ee68245706425" title="to_long_int_convertor" alt="" coords="323,29,469,59"/>
+<area shape="rect" id="node7" href="$d2/d72/parser_8c.html#af3a6687e5acbde26caa530c5b5d724cf" title="copy_cbyc" alt="" coords="353,159,439,190"/>
+<area shape="rect" id="node9" href="$dc/db9/dallocate_8c.html#ae0f491bd4ea0ec52dba477499faaf122" title="free_cfgframe_object" alt="" coords="131,109,275,139"/>
+<area shape="rect" id="node13" href="$d2/d72/parser_8c.html#af8e1dc1611c018e8bfe11eeb3505c8f6" title="remove_old_cfg" alt="" coords="145,213,260,243"/>
+<area shape="rect" id="node18" href="$d2/d72/parser_8c.html#ab3ddd3da69dfca3848e78ad92127e9dc" title="to_intconvertor" alt="" coords="343,266,449,297"/>
+<area shape="rect" id="node11" href="$dc/db9/dallocate_8c.html#acdd6352630264d48affb8e423014507e" title="free_2darray" alt="" coords="349,106,443,137"/>
+<area shape="rect" id="node16" href="$d2/d72/parser_8c.html#a12eb97b1aa14a36d0a01ea7b268eaa96" title="ncmp_cbyc" alt="" coords="352,213,440,243"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" href="$d5/d36/parser_8h.html#a335f7c86d24d49f759fad395137b99be" title="dataparser" alt="" coords="165,85,248,115"/>
+<area shape="rect" href="$db/dfe/connections_8h.html#a925134a77b6b6e57a1805f9cd76c6612" title="PMU_process_TCP" alt="" coords="297,59,433,88"/>
+<area shape="rect" href="$db/dfe/connections_8h.html#ae97b3cfe05d2c80d8fb40d2666c2305b" title="PMU_process_UDP" alt="" coords="297,112,433,141"/>
+<area shape="rect" href="$d6/d19/new__pmu__or__pdc_8h.html#aa72dd8fa7bd0492e504bece9b64b6181" title="connect_pmu_tcp" alt="" coords="485,59,608,88"/>
+<area shape="rect" href="$d6/d19/new__pmu__or__pdc_8h.html#a0a6f6c312dd2b1ab6b6cf5afb028b179" title="add_PMU" alt="" coords="707,112,784,141"/>
+<area shape="rect" href="$d6/d19/new__pmu__or__pdc_8h.html#a06e3a08701fdfc05e962c6b7d558d893" title="config_request" alt="" coords="692,5,799,35"/>
+<area shape="rect" href="$db/dfe/recreate_8h.html#a221c0fd6e7182f14cf8381b1c020e2ba" title="recreate_tcp_connections" alt="" coords="660,59,831,88"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a6dbcc592afc90be9df57d9af9d40441b" title="add_pmu_validation" alt="" coords="901,72,1037,101"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a1fc8437bc2e9e141c5a64bcfaa652521" title="add_pmu" alt="" coords="1399,72,1473,101"/>
+<area shape="rect" href="$d4/d79/ipdc_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1559,99,1607,128"/>
+<area shape="rect" href="$d6/d19/new__pmu__or__pdc_8h.html#a76197828f3d2859b3022c5c305cdf4d4" title="configuration_request" alt="" coords="897,19,1041,48"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#aaef77f3ff4520d95d279d9d6265e3dba" title="cmd_or_remove_pmu_validation" alt="" coords="1107,19,1315,48"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a5b7e508dc36a8deddd998b0d0922e380" title="cmd_or_remove_pmu" alt="" coords="1363,19,1509,48"/>
+<area shape="rect" href="$db/dfe/recreate_8h.html#aca6183bae5893a67b3d013c9cc4bb811" title="recreate_Connection_Table" alt="" coords="880,152,1059,181"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a2016dc600b9756da528308763b38b686" title="fill_pdc_details" alt="" coords="1157,152,1264,181"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a15c02481bec14669241dadc63c8b5f13" title="pdc_details" alt="" coords="1392,125,1480,155"/>
+<area shape="rect" href="$d6/d19/new__pmu__or__pdc_8h.html#adfe802f090ffe12355708c944624a818" title="connect_pmu_udp" alt="" coords="483,112,611,141"/>
+<area shape="rect" href="$db/dfe/recreate_8h.html#a3c7eb228e6dbe1f5d5914e0aa2b32a6f" title="recreate_udp_connections" alt="" coords="659,165,832,195"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" href="$df/dd7/connections_8c.html#aa59ca7a29656d58cffaecee207972d99" title="UL_tcp_connection" alt="" coords="119,165,249,195"/>
+<area shape="rect" href="$d1/d61/align__sort_8c.html#ad9bb234c46b3ce319406251812e4f4c0" title="create_cfgframe" alt="" coords="300,165,415,195"/>
+<area shape="rect" href="$d2/d72/parser_8c.html#a8c94a2fc99cf33cd47ed4b67e1216d7c" title="byte_by_byte_copy" alt="" coords="488,5,621,35"/>
+<area shape="rect" href="$d2/d72/parser_8c.html#adc5cecb6bf8a8388ee03d9b77bbb3ea7" title="compute_CRC" alt="" coords="503,59,607,88"/>
+<area shape="rect" href="$d2/d72/parser_8c.html#af3a6687e5acbde26caa530c5b5d724cf" title="copy_cbyc" alt="" coords="513,112,596,141"/>
+<area shape="rect" href="$d2/d72/parser_8c.html#a2ec0b197886c60504a9c2af58b89fe7f" title="int_to_ascii_convertor" alt="" coords="481,165,628,195"/>
+<area shape="rect" href="$d2/d72/parser_8c.html#a60abb2812ccbae712e80bd4511c98456" title="long_int_to_ascii_convertor" alt="" coords="465,219,644,248"/>
+<area shape="rect" href="$d2/d72/parser_8c.html#ab3ddd3da69dfca3848e78ad92127e9dc" title="to_intconvertor" alt="" coords="501,272,608,301"/>
+<area shape="rect" href="$d2/d72/parser_8c.html#a079d19d1e274b496720ee68245706425" title="to_long_int_convertor" alt="" coords="483,325,627,355"/>
+</map>

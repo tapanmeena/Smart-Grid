@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a3b07e4d781938846b3ff103cc4c2d20d" title="validation_remove_ph_an_num" alt="" coords="197,268,397,297"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a0c06a0ec4e9bc796b661c0f6dc892151" title="change_data_rate_option" alt="" coords="447,165,612,195"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#a38c20b12f67cb09d8ec8059224c568e6" title="isNumber" alt="" coords="1088,216,1163,245"/>
+<area shape="rect" href="$d7/d22/PmuGui_8c.html#af43954703f1a1b1f2b56b4a1a7dd4507" title="validation_result" alt="" coords="1233,219,1348,248"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a54c4703e571640d34ef09bd7c2583c47" title="remove_analog_num" alt="" coords="459,320,600,349"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#ab199c72d8df0612d70081bfb4d8dc4d5" title="enter_new_data_rate" alt="" coords="661,165,803,195"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#a76ee0f377a397426f50ff03e721a30ea" title="final_cfg_update_call" alt="" coords="863,112,1007,141"/>
+<area shape="rect" href="$d9/ded/CfgGuiFunctions_8c.html#aa4e80be8dd56202660f7201f51a61f0f" title="validation_new_data_rate" alt="" coords="851,165,1019,195"/>
+<area shape="rect" href="$db/d74/CfgFunction_8c.html#a487fa1c4d6b218127774845eb9e23480" title="reconfig_cfg_CC" alt="" coords="1067,112,1184,141"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#aa0fa65a4b1d023b300bfbc00d3dae0b1" title="B_copy" alt="" coords="1259,5,1323,35"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#adc5cecb6bf8a8388ee03d9b77bbb3ea7" title="compute_CRC" alt="" coords="1239,59,1343,88"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a0be9189ec64523a4e8525d9d24501b9d" title="i2c" alt="" coords="1272,112,1309,141"/>
+<area shape="rect" href="$dd/dfb/function_8c.html#a774184bfed93069a607dbf174023e421" title="li2c" alt="" coords="1271,165,1311,195"/>
+</map>

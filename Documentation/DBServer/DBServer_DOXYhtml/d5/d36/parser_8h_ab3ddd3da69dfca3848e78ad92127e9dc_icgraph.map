@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d5/d36/parser_8h.html#a64484e8fcf9db9b05da35a532d97d71e" title="cfgparser" alt="" coords="360,26,435,57"/>
+<area shape="rect" id="node15" href="$d5/d36/parser_8h.html#a335f7c86d24d49f759fad395137b99be" title="dataparser" alt="" coords="356,80,439,110"/>
+<area shape="rect" id="node18" href="$db/dfe/recreate_8h.html#a6b27b12f13bc0598e87eae481f49e3d1" title="init_cfgparser" alt="" coords="171,132,269,162"/>
+<area shape="rect" id="node20" href="$db/dfe/recreate_8h.html#aca43739d36f065730700d021b8a85a12" title="recreate_cfg_objects" alt="" coords="327,133,468,164"/>
+<area shape="rect" id="node24" href="$d5/d36/parser_8h.html#af8e1dc1611c018e8bfe11eeb3505c8f6" title="remove_old_cfg" alt="" coords="163,28,277,58"/>
+<area shape="rect" id="node5" href="$db/dfe/connections_8h.html#a98c56b1f61c42125245c900e9f29acb7" title="DB_process_UDP" alt="" coords="519,80,644,110"/>
+<area shape="rect" id="node7" href="$db/dfe/connections_8h.html#ad7f8450aad1f90b1ee0232aea90e4ea3" title="DB_udphandler" alt="" coords="695,80,804,110"/>
+<area shape="rect" id="node9" href="$db/dfe/connections_8h.html#a1bfb995367089812ad8064667143c63d" title="DB_udp" alt="" coords="855,80,921,110"/>
+<area shape="rect" id="node11" href="$db/dfe/connections_8h.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="972,80,1025,110"/>
+<area shape="rect" id="node13" href="$dd/d59/dbserver_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1075,106,1125,137"/>
+</map>

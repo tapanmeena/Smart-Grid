@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#a49b43e8e26ce695af11fa51dd0cd70e2" title="channel_names_for_digital" alt="" coords="381,5,557,35"/>
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#a8352dd4a42eb4efb98a952c0a8da145a" title="validation_digital_names" alt="" coords="169,31,332,60"/>
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#a1fcadf1cee22ec2cb09f37a718f4cfe2" title="channel_names_for_analog" alt="" coords="823,5,1001,35"/>
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#ae6d44e618cb1fded2ad30adcd214c437" title="validation_analog_names" alt="" coords="605,31,773,60"/>
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#a7d584f91b1eea81bdc53a7ba5971098f" title="validation_phasor_names" alt="" coords="1051,5,1219,35"/>
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#a3fbf8af3fba0828c849af5bd39a1a40c" title="channel_names_for_phasor" alt="" coords="1268,5,1447,35"/>
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#adf4b5f4216b3280ae946f7c05e26f224" title="validation_cfg_create" alt="" coords="1496,5,1640,35"/>
+<area shape="rect" href="$d6/d6d/CfgGuiFunctions_8h.html#af0cd57155470cfe6d75e502bb1f87da6" title="cfg_create_function" alt="" coords="1688,5,1824,35"/>
+<area shape="rect" href="$df/ddb/pmu_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1873,5,1921,35"/>
+</map>

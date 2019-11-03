@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a5df3af32ac54db6ee58e30c1a4562447" title="add_new_pdc" alt="" coords="327,5,425,35"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a1fc8437bc2e9e141c5a64bcfaa652521" title="add_pmu" alt="" coords="339,59,413,88"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a5b7e508dc36a8deddd998b0d0922e380" title="cmd_or_remove_pmu" alt="" coords="131,111,277,140"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a2016dc600b9756da528308763b38b686" title="fill_pdc_details" alt="" coords="151,164,257,193"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a04fa602f2636e9f4f1bfc6959cbee7b7" title="remove_pdc" alt="" coords="159,241,249,271"/>
+<area shape="rect" href="$d4/d79/ipdc_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="476,136,524,165"/>
+<area shape="rect" href="$d3/d7c/ipdcGui_8h.html#a15c02481bec14669241dadc63c8b5f13" title="pdc_details" alt="" coords="332,213,420,243"/>
+</map>
