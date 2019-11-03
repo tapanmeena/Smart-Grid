@@ -421,6 +421,7 @@ void* connect_pmu_udp(void *temp) {
 		temp_pmu->sockfd = udp_sockfd;
 		temp_pmu->up = 1;
 	}
+
 	/* Add PMU*/
 	add_PMU_Node(temp_pmu);	
 
@@ -429,8 +430,9 @@ void* connect_pmu_udp(void *temp) {
 	/* Sending Command fro obtaining CFG */
 	addr_len = sizeof(struct sockaddr);	
 	int n,bytes_read;
-	unsigned char *cmdframe = malloc(19);
+	char *cmdframe = malloc(19);
 	cmdframe[18] = '\0';
+
 	create_command_frame(1,temp_pmu->pmuid,(char *)cmdframe);
 	// printf("Info You want %hu\n", (struct sockaddr *)&PMU_addr.sin_port);
 	if ((n = sendto(udp_sockfd,cmdframe, 18, 0, (struct sockaddr *)&PMU_addr,sizeof(PMU_addr)) == -1)) {
@@ -444,84 +446,8 @@ void* connect_pmu_udp(void *temp) {
 			unsigned char *cmdframe = malloc(19);
 			cmdframe[18] = '\0';
 			// printf("Whenever Datagram Received\n");
-
-			//edited by Tapan Start
-			// printf("Z Value %d\n", zz);
-			zz++;
-
-			
-			if(zz%50 == 0 && dataOff)
-			{
-				printf("Inside ZZZZZ\n");
-				create_command_frame(1,temp_pmu->pmuid,(char *)cmdframe);
-				if(sendto(udp_sockfd, cmdframe, 18, 0, (struct sockaddr *)&PMU_addr,sizeof(PMU_addr))==-1)
-				{
-					perror("sendto");
-				}
-				else
-				{
-					printf("Command Frame sent Successfully for Data transmission ON\n");
-				}
-				dataOff = 0;
-			}
-			else if(zz%50 == 0 && !dataOff)
-			{
-				create_command_frame(3,temp_pmu->pmuid, (char*)cmdframe);
-				if(sendto(udp_sockfd, cmdframe, 18, 0, (struct sockaddr *)&PMU_addr,sizeof(PMU_addr))==-1)
-				{
-					perror("sendto");
-				}
-				else
-				{
-					printf("Command Frame sent Successfully for Data transmission OFF\n");
-				}
-				dataOff = 1;
-			}
-			if(dataOff)
-				continue;
-			// memset(udp_BUF,'\0',MAXBUFLEN * sizeof(unsigned char));
 			bytes_read = recvfrom (udp_sockfd, udp_BUF,MAXBUFLEN-1,0,(struct sockaddr *)&their_addr,(socklen_t *)&addr_len);
 
-/*			printf("Z value %d\n", zz);
-			if(zz != 1)
-			{
-				char sendBuffer[1024];
-				sprintf(sendBuffer, "Data is Successfully Sent from LPDC %d to PMU %s : %d", temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
-
-				if(sendto(udp_sockfd, sendBuffer, sizeof(sendBuffer), 0, (struct sockaddr *)&their_addr,sizeof(their_addr)) == -1)
-				{
-					printf("Inside Sendto result Error\n");
-					perror("sendto");
-				}
-				else
-				{
-					printf("\nData is Successfully Sent from LPDC %d to PMU %s : %d\n",temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
-				}
-			}
-			zz++;*/
-		//edited by Tapan End
-			//edited by tapan start
-	/*			unsigned char *sendBuffer = malloc(19);
-				sendBuffer[18] = '\0';
-				create_command_frame(1, temp_pmu->pmuid, (char *)cmdframe);
-	*/			
-			// char sendBuffer[1024] = "Hello From PDC";
-	/*			char sendBuffer[1024];
-			sprintf(sendBuffer, "Data is Successfully Sent from LPDC %d to PMU %s : %d", temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
-
-			if(sendto(udp_sockfd, sendBuffer, sizeof(sendBuffer), 0, (struct sockaddr *)&their_addr,sizeof(their_addr)) == -1)
-			{
-				printf("Inside Sendto result Error\n");
-				perror("sendto");
-			}
-			else
-			{
-				// printf("Printing IP Address\n");
-				// printf("got something %s\n",inet_ntoa(their_addr.sin_addr));
-				printf("\nData is Successfully Sent from LPDC %d to PMU %s : %d\n",temp_pmu->pmuid, inet_ntoa(their_addr.sin_addr), htons(their_addr.sin_port));
-			}
-	*/
-			//Edited by Tapan End
 			if(bytes_read == -1) {
 
 				perror("recvfrom");

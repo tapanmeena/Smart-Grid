@@ -14,6 +14,7 @@
 #include <arpa/inet.h>
 #include <sys/signal.h>
 #include <unistd.h>
+#include <time.h>
 #include "iPMU.h"
 #include "function.h"
 #include "connection.h"
@@ -29,6 +30,8 @@ float phasorI_meg[] = {0.998,1.0,0.994};	// Current nominal as 1.0Amp
 float phase_ang[] 	= {-120.6,0.65,120.45}; 
 double degreeToRad;
 
+#define kdcPort 5000
+#define MAXLINE 1000
 
 /* ----------------------------------------------------------------------------	*/
 /* FUNCTION  generate_data_frame():	               					*/
@@ -625,13 +628,84 @@ int csv_cfg_create(int pmuID, FILE *fp_csv, int key)
 }
 
 
+lli compute_public_values(int g, int a, int p)
+{
+	return (((lli)pow(g, a)) % p);
+}
+
+lli compute_shared_key(lli received_value, int a, int p)
+{
+	return (((lli)pow(received_value, a)) % p);
+}
+
 int main(int argc,char **argv)
 {
+	int P = 1009, G = 109;
+	lli shared_key = 0;
+
+	srand(time(0));
+	lli privateKey = rand() % 10;
+	printf("Private Key : %lld\n", privateKey);
+	lli public_value = compute_public_values(G, privateKey, P);
+	printf("Calculated Public Value at KDC : %lld\n",public_value);
+
+	char buffer[100];
+	char message[MAXLINE];
+	snprintf (message, sizeof(message), "%lld",public_value); // print int 'n' into the char[] buffer
+
 	if (argc != 2)
 	{
 		printf("Passing arguments does not match with the iPMU inputs. Try Again?\nSyntex : ./iPMU <PMU Info CSV files Path> \n");
 		exit(EXIT_SUCCESS);
 	}
+	
+	// For sending message to KDC
+	//#############################
+	{
+		int sockfd, n; 
+		struct sockaddr_in servaddr; 
+
+		// clear servaddr 
+		bzero(&servaddr, sizeof(servaddr)); 
+		servaddr.sin_addr.s_addr = inet_addr("127.0.0.1"); 
+		servaddr.sin_port = htons(kdcPort); 
+		servaddr.sin_family = AF_INET; 
+
+		// create datagram socket 
+		sockfd = socket(AF_INET, SOCK_DGRAM, 0); 
+
+		// connect to server 
+		if(connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) 
+		{ 
+			printf("\n Error : Connect Failed \n"); 
+			exit(0); 
+		} 
+
+		// request to send datagram 
+		// no need to specify server address in sendto 
+		// connect stores the peers IP and port 
+		sendto(sockfd, message, MAXLINE, 0, (struct sockaddr*)NULL, sizeof(servaddr)); 
+
+		// waiting for response 
+		recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL); 
+		// puts(buffer);
+		printf("Received Public Value : %s\n", buffer);
+
+		printf("#### Calculating Shared Key ####\n");
+		sscanf(buffer, "%lld", &shared_key); // Using sscanf
+		shared_key = compute_shared_key(shared_key, privateKey, P);
+		if (shared_key == 0)
+		{
+			printf("Key Server Not Available Exiting.......\n");
+			exit(100);
+		}
+		printf("Shared Key is : %lld\n",shared_key);
+		// close the descriptor 
+		close(sockfd);
+	}
+	//#############################
+
+	
 	degreeToRad = M_PI/180;
 	
 	int i;

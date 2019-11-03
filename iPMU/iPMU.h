@@ -29,6 +29,7 @@
 
 
 #define TB 1000000 //6777216 // roundf(powf(2,24) - 1);
+#define lli long long int
 
 
 /* ---------------------------------------------------------------- */
@@ -129,4 +130,7 @@ int csv_create_cfg(int pmuID, char *filePath);
 
 void generate_data_frame(int key);
 
+lli compute_public_values(int g,int a, int p);
+
+lli compute_shared_key(lli received_value, int a, int p);
 /**************************************** End of File *******************************************************/

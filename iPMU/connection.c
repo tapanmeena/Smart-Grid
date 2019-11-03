@@ -125,11 +125,11 @@ void* SEND_DATA()
 		// 	printf("Inside Wait\n");
 		// }
 		// else 
-		if(waitSignal == 2)
+/*		if(waitSignal == 2)
 		{
 			printf("Data is OFF\n");
 			continue;
-		}
+		}*/
     	if (i != 0)
     	{
            		cal_timeSpec->tv_nsec += data_waiting;
@@ -310,7 +310,7 @@ void* UDP_PMU(void* i)
 				}*/
 				else if((c & 0x02) == 0x02)		/* Command frame for Turn ON transmission request from PDC */
 				{
-					printf("Frame for Data Transmission ON\n"); 
+/*					printf("Frame for Data Transmission ON\n"); 
 					// pthread_mutex_lock(&mutex_data);
 					printf("Wait Signal Value %d\n", waitSignal);		
 					if(waitSignal>1)
@@ -321,7 +321,7 @@ void* UDP_PMU(void* i)
 						continue;
 					}
 					waitSignal = 1;
-					// pthread_mutex_unlock(&mutex_data);
+*/					// pthread_mutex_unlock(&mutex_data);
 					printf("\nCommand Frame Received : Turn ON data transmission.\n");
 				     	pthread_mutex_lock(&mutex_data);
 						send_cfg_count++;
@@ -334,8 +334,8 @@ void* UDP_PMU(void* i)
 				}
 				else if((c & 0x01) == 0x01)
 				{
-					printf("Command Frame is for Data Transmission OFF\n");
-					waitSignal++;
+					printf("######Command Frame is for Data Transmission OFF######\n");
+					// waitSignal++;
 /*					int n = pthread_cancel(&sending[index]);
 					if(n == 0)
 					{
@@ -344,7 +344,7 @@ void* UDP_PMU(void* i)
 					else
 						printf("Unable to kill data transmission\n");*/
 					// pthread_cond_wait(&cond,&mutex_data);
-					printf("Data Transmission is OFF\n"); 
+					// printf("Data Transmission is OFF\n"); 
 				}
 				else
 				{
